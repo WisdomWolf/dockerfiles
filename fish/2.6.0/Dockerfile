@@ -11,7 +11,7 @@ RUN apk add --no-cache bc curl g++ git groff libgcc libstdc++ make mdocml-apropo
     && rm -rf fish-2.6.0 fish-2.6.0.tar.gz \
     && apk del --no-cache g++ make ncurses-dev \
     && fish -c true \
-    && adduser -D -u 1000 -s /usr/local/bin/fish nemo \
+    && adduser -D -u ${PUID:-1000} -s /usr/local/bin/fish nemo \
     && echo 'nemo ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 USER nemo
